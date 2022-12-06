@@ -1,8 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const { isObject } = require("util");
-
+const http = require("http");
 const app = express();
 const server = http.createServer(app);
 mongoose.connect(process.env.MONGO_LINK, {
@@ -37,16 +36,6 @@ app.use(function (_req, res, next) {
 // app.use("/api/feed", require("./Routes/postRouter"));
 // app.use("/api/message", require("./Routes/messageRouter"));
 // app.use("/api/file", require("./Routes/fileUploadRouter"));
-// Step 1:
-app.use(express.static(path.resolve(__dirname, "./rmit-teams-front/build")));
-// Step 2:
-app.get("*", function (_request, response) {
-  response.sendFile(
-    path.resolve(__dirname, "./rmit-teams-front/build", "index.html")
-  );
-});
-
-//create a socket connection
 
 const PORT = process.env.DEFAULT_PORT || process.env.PORT;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
