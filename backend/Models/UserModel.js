@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, require: true },
   name: { type: String, default: "Student name" },
   loginAt: { type: Date, default: Date.now },
+  role: { type: String, enum: ["recruiter", "applicant"] },
   verify: { type: Boolean, default: false },
   token: { type: String, default: null },
   profile_image: { type: Object, default: null },

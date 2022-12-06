@@ -1,10 +1,25 @@
-import React from "react";
-import { SolarSystemLogo } from "../../assets/logo-exporter";
+import React, { useState } from "react";
+import {
+  RecruiterIcon,
+  SolarSystemLogo,
+  ApplicantIcon,
+} from "../../assets/logo-exporter";
+import GetStarted from "./GetStarted";
+import RecruiterOrApplicant from "./RecruiterOrApplicant";
 const LandingPage = () => {
+  const [toggleGetStarted, setToggleGetStarted] = useState(false);
+  const handleGetStartedTransition = () => {
+    setToggleGetStarted(true);
+  };
   return (
-    <div>
-      <img src={SolarSystemLogo} />
-      <h1>Are you a recruiter or an applicant</h1>
+    <div className="flex flex-col items-center justify-center py-10">
+      {toggleGetStarted ? (
+        <GetStarted />
+      ) : (
+        <RecruiterOrApplicant
+          handleGetStartedTransition={handleGetStartedTransition}
+        />
+      )}
     </div>
   );
 };
