@@ -30,20 +30,20 @@ const SignUp = () => {
     navigate("/signin");
   };
   return (
-    <main className="portalWrapper mx-auto shadow-lg w-[35vw] h-[80%]  absolute top-0 left-0 bottom-0 right-0 m-auto rounded-md duration-200 hover:shadow-xl">
+    <main className="portalWrapper mx-auto shadow-lg w-[35vw] h-[80%] absolute top-0 left-0 bottom-0 right-0 m-auto rounded-md duration-200 hover:shadow-xl">
       <div className="row">
-        <div className="col-12 w-full">
+        <div className="w-full col-12">
           <a href="/" className="flex items-center justify-center">
             <img src={SolarSystemLogo} className="w-[70%] h-auto" />
           </a>
         </div>
         <div className="col-12">
           <form
-            className="form-signin py-4 flex flex-col items-center justify-center gap-4"
+            className="flex flex-col items-center justify-center gap-4 py-4 form-signin"
             // onSubmit={handleSubmit(onSignup)}
           >
-            <h4 className="font-bold mt-2">✨ New account ✨</h4>
-            <div className="form-floating w-full flex flex-col justify-center items-center">
+            <h4 className="mt-2 font-bold">✨ New account ✨</h4>
+            <div className="flex flex-col items-center justify-center w-full form-floating">
               <div className="w-[70%] flex flex-col items-start justify-center gap-3">
                 <p
                   className={`self-align-left font-semibold ${
@@ -54,7 +54,7 @@ const SignUp = () => {
                 </p>
                 <input
                   type="text"
-                  className="form-control email-login px-3 py-2 rounded-md drop-shadow-md w-full focus:outline-0"
+                  className="w-full px-3 py-2 rounded-md form-control email-login drop-shadow-md focus:outline-0"
                   id="floatingInput"
                   placeholder="John Doe"
                   onFocus={() => {
@@ -79,7 +79,7 @@ const SignUp = () => {
               )} */}
               </div>
             </div>
-            <div className="form-floating w-full flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center w-full form-floating">
               <div className="w-[70%] flex flex-col items-start justify-center gap-3">
                 <p
                   className={`self-align-left font-semibold ${
@@ -90,7 +90,7 @@ const SignUp = () => {
                 </p>
                 <input
                   type="text"
-                  className="form-control email-login px-3 py-2 rounded-md drop-shadow-md w-full focus:outline-0"
+                  className="w-full px-3 py-2 rounded-md form-control email-login drop-shadow-md focus:outline-0"
                   id="floatingInput"
                   placeholder="name@example.com"
                   onFocus={() => {
@@ -115,7 +115,7 @@ const SignUp = () => {
               )} */}
               </div>
             </div>
-            <div className="form-floating w-full flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center w-full form-floating">
               <div className="w-[70%] flex flex-col items-start justify-center gap-3">
                 <p
                   className={`self-align-left font-semibold  text-left ${
@@ -126,7 +126,7 @@ const SignUp = () => {
                 </p>
                 <input
                   type="password"
-                  className="form-control email-login px-3 py-2 rounded-md drop-shadow-md w-full focus:outline-0"
+                  className="w-full px-3 py-2 rounded-md form-control email-login drop-shadow-md focus:outline-0"
                   id="floatingInput"
                   placeholder="name@example.com"
                   onFocus={() => {
@@ -154,13 +154,14 @@ const SignUp = () => {
             <button
               className="w-100 btn btn-lg bg-indigo-500 rounded-md w-[50%] text-white mt-2 py-1"
               type="submit"
+              onClick={() => {navigate("/application-process");}}
             >
               Submit
             </button>
             <div className="flex items-center justify-center">
-              <h6 className="my-3 mx-1">Already a user?</h6>
+              <h6 className="mx-1 my-3">Already a user?</h6>
               <button
-                className="w-100 btn btn-lg text-indigo-600"
+                className="text-indigo-600 w-100 btn btn-lg"
                 onClick={onLoginClick}
               >
                 Login now!

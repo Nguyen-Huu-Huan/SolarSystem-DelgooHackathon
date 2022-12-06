@@ -5,11 +5,17 @@ import ApplicantIcon from "./resume.png";
 import LoginIcon from "./enter.png";
 import RegisterIcon from "./register.png";
 import UnknownSkill from "./question.png";
+import JobIcon from "./portfolio.png";
+import ExperienceIcon from "./user-experience.png";
+import NewJobIcon from "./job.png";
 export {
   SolarSystemLogo,
   RecruiterIcon,
   ApplicantIcon,
   LoginIcon,
+  ExperienceIcon,
+  JobIcon,
   RegisterIcon,
   UnknownSkill,
+  NewJobIcon,
 };

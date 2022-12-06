@@ -3,6 +3,7 @@ import { MdAddCircle } from "react-icons/md";
 import { UnknownSkill } from "../../../../assets/logo-exporter";
 const RequiredSkillset = () => {
   const [newSkill, setNewSkill] = useState("");
+  const [openExperience, setOpenExperience] = useState(false);
   const [skills, setSkills] = useState([
     {
       name: "Python",
@@ -32,7 +33,7 @@ const RequiredSkillset = () => {
     {
       name: "Java",
       icon: "https://cdn-icons-png.flaticon.com/512/226/226777.png",
-      isSelected: true,
+      isSelected: false,
     },
     {
       name: "Golang",
@@ -48,26 +49,28 @@ const RequiredSkillset = () => {
     ]);
   };
   return (
-    <div className="overflow-scroll max-h-[90vh] py-10 flex flex-col items-center justify-center w-[50%]">
-      <p className="text-xl font-bold text-left w-full">Skillsets</p>
-      <div className="flex flex-wrap items-center justify-center gap-5  w-full">
+    <div className="flex flex-col items-center justify-center w-[50%]">
+      <p className="w-full text-xl font-bold text-left">Skillsets</p>
+      <div className="flex flex-wrap items-center justify-center w-full gap-5">
         {skills.map((skill, skillIndex) => (
           <button
             className={`hover:shadow-md hover:border hover:border-indigo-400 ${
-              skill.isSelected && "border-blue-500"
+              skill.isSelected && "border-blue-500 border-2"
             }  duration-200 rounded-md flex flex-col items-center justify-center gap-4 px-10 py-8`}
             onClick={() => {
               setSkills((oldSkills) => {
                 return oldSkills.map((skill, index) => {
                   if (skillIndex === index) {
-                    return !oldSkills[index].isSelected;
+                    console.log("skill", skill["isSelected"], index);
+                    return { ...skill, isSelected: !skill["isSelected"] };
                   }
+                  return skill;
                 });
               });
             }}
           >
             <img src={skill.icon} className="w-[60px] h-auto" />
-            <p className="font-Solway font-bold text-xl ">{skill.name}</p>
+            <p className="text-xl font-bold font-Solway ">{skill.name}</p>
           </button>
         ))}
       </div>
@@ -78,15 +81,16 @@ const RequiredSkillset = () => {
         >
           Other skills
         </p>
-        <div className="input-container relative w-full">
+        <div className="relative w-full input-container">
           <input
             type="text"
-            className="form-control email-login px-3 py-2 rounded-md drop-shadow-md w-full focus:outline-0"
+            className="w-full px-3 py-2 rounded-md form-control email-login drop-shadow-md focus:outline-0"
             id="floatingInput"
             placeholder="New programming language"
             onChange={(e) => {
               setNewSkill(e.target.value);
             }}
+            value={newSkill}
             //   onFocus={() => {
             //     setEmailFieldFocus(true);
             //   }}
@@ -114,6 +118,14 @@ const RequiredSkillset = () => {
                   &nbsp;{errors.email.message}
                 </p>
               )} */}
+        <button
+          className="self-end px-3 py-2 duration-100 border border-indigo-500 rounded-md hover:bg-indigo-500 hover:text-white"
+          onClick={() => {
+            setOpenExperience(true);
+          }}
+        >
+          Next
+        </button>
       </div>
     </div>
   );

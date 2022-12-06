@@ -13,7 +13,7 @@ const SignIn = () => {
   const [passwordFieldFocus, setPasswordFieldFocus] = useState(false);
   const navigate = useNavigate();
   const handleSignin = async (data) => {
-    navigate("/recruitment-process");
+    navigate("/recruitment-portal");
     // await axios
     //   .post("http://localhost:4000/api/user/register", data)
     //   .then((res) => {
@@ -31,20 +31,20 @@ const SignIn = () => {
   };
   return (
     <main className="portalWrapper  shadow-lg w-[35vw] h-[80%]  absolute top-0 left-0 bottom-0 right-0 m-auto rounded-md duration-200 hover:shadow-xl flex flex-col items-center justify-center">
-      <div className="row py-2">
-        <div className="col-12 w-full">
+      <div className="py-2 row">
+        <div className="w-full col-12">
           <a href="/" className="flex items-center justify-center">
             <img src={SolarSystemLogo} className="w-[70%] h-auto" />
           </a>
         </div>
         <div className="col-12">
           <form
-            className="form-signin py-4 flex flex-col items-center justify-center gap-4"
+            className="flex flex-col items-center justify-center gap-4 py-4 form-signin"
             // onSubmit={handleSubmit(onLogin)}
           >
-            <h4 className="font-bold mt-2">👋 Welcome to Solar System!</h4>
-            <p className="text-slate-500 mb-4">Please login to continue</p>
-            <div className="form-floating w-full flex flex-col justify-center items-center">
+            <h4 className="mt-2 font-bold">👋 Welcome to Solar System!</h4>
+            <p className="mb-4 text-slate-500">Please login to continue</p>
+            <div className="flex flex-col items-center justify-center w-full form-floating">
               <div className="w-[70%] flex flex-col items-start justify-center gap-3">
                 <p
                   className={`self-align-left font-semibold ${
@@ -55,7 +55,7 @@ const SignIn = () => {
                 </p>
                 <input
                   type="text"
-                  className="form-control email-login px-3 py-2 rounded-md drop-shadow-md w-full focus:outline-0"
+                  className="w-full px-3 py-2 rounded-md form-control email-login drop-shadow-md focus:outline-0"
                   id="floatingInput"
                   placeholder="name@example.com"
                   onFocus={() => {
@@ -80,7 +80,7 @@ const SignIn = () => {
               )} */}
               </div>
             </div>
-            <div className="form-floating w-full flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center w-full form-floating">
               <div className="w-[70%] flex flex-col items-start justify-center gap-3">
                 <p
                   className={`self-align-left font-semibold  text-left ${
@@ -91,7 +91,7 @@ const SignIn = () => {
                 </p>
                 <input
                   type="password"
-                  className="form-control email-login px-3 py-2 rounded-md drop-shadow-md w-full focus:outline-0"
+                  className="w-full px-3 py-2 rounded-md form-control email-login drop-shadow-md focus:outline-0"
                   id="floatingInput"
                   placeholder="name@example.com"
                   onFocus={() => {
@@ -125,9 +125,9 @@ const SignIn = () => {
               Login
             </button>
             <div className="flex items-center justify-center">
-              <h6 className="my-3 mx-1">Don't have an account?</h6>
+              <h6 className="mx-1 my-3">Don't have an account?</h6>
               <button
-                className="w-100 btn btn-lg text-indigo-600"
+                className="text-indigo-600 w-100 btn btn-lg"
                 onClick={onSignupClick}
               >
                 Sign up here

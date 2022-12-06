@@ -78,7 +78,7 @@ const CandidateInfo = () => {
   ]);
 
   return (
-    <div>
+    <div className="py-4 ">
       <select data-placeholder="Choose a Language...">
         {languages.map((language) => (
           <option value={language.code}>{language.name}</option>
