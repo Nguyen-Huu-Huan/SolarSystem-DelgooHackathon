@@ -8,6 +8,8 @@ import UnknownSkill from "./question.png";
 import JobIcon from "./portfolio.png";
 import ExperienceIcon from "./user-experience.png";
 import NewJobIcon from "./job.png";
+import LanguageIcon from "./language.png";
+import ContrastIcon from "./brightness-and-contrast.png";
 export {
   SolarSystemLogo,
   RecruiterIcon,
@@ -18,4 +20,6 @@ export {
   RegisterIcon,
   UnknownSkill,
   NewJobIcon,
+  LanguageIcon,
+  ContrastIcon,
 };

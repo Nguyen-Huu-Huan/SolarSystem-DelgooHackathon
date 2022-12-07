@@ -49,14 +49,13 @@ const RequiredSkillset = () => {
     ]);
   };
   return (
-    <div className="flex flex-col items-center justify-center w-[50%]">
-      <p className="w-full text-xl font-bold text-left">Skillsets</p>
+    <div className="flex flex-col items-center justify-center w-full justify-self-end">
       <div className="flex flex-wrap items-center justify-center w-full gap-5">
         {skills.map((skill, skillIndex) => (
           <button
             className={`hover:shadow-md hover:border hover:border-indigo-400 ${
               skill.isSelected && "border-blue-500 border-2"
-            }  duration-200 rounded-md flex flex-col items-center justify-center gap-4 px-10 py-8`}
+            }  duration-200 rounded-md flex flex-col items-center justify-center gap-4 px-[5%] pt-[5%]`}
             onClick={() => {
               setSkills((oldSkills) => {
                 return oldSkills.map((skill, index) => {

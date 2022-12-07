@@ -1,5 +1,5 @@
 import "./App.css";
-import CandidateInfo from "./components/Applicants/ApplicationProcess/CandidateInfo";
+import CandidateInfo from "./components/Applicants/ApplicationProcess/CandidateInfo/CandidateInfo";
 import SignUp from "./components/SignUp/SignUp";
 import SignIn from "./components/SignIn/SignIn";
 import LandingPage from "./components/LandingPage/LandingPage";

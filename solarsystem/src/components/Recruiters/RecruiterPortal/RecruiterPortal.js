@@ -8,7 +8,7 @@ const RecruiterPortal = () => {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col items-center justify-center w-full h-[90vh] ">
-      <p className="text-3xl">Great! Let's get started</p>
+      <p className="text-3xl">Job Portal</p>
       <div className="flex items-center justify-center gap-5 my-[10vh]">
         <button
           className="flex items-center justify-center gap-4 px-16 py-8 duration-200 rounded-md hover:shadow-md hover:border hover:border-indigo-400"
