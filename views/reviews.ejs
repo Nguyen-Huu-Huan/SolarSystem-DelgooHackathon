@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <script src="https://kit.fontawesome.com/2008d3a315.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/2008d3a315.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="reviews.css">
+</head>
+<body>
+    <!-- In navbar, have: "Simplified - Recruiter's edition" -->
+    <h3>Reviews</h3>
+    
+    <h4></h4>
+    <section class="averageRating">
+        Average I.E.D. Rating
+        <!-- Important to note that between <i> elements, DO NOT leave space, else % is inaccurately represented -->
+        <div class="stars-outer">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <div class="averageRating-stars-inner" style="width:<%=averageRating%>%">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+        </div>
+        <span id="noOfReviews">
+            (<%= noOfReviews %>)
+        </span>
+        
+        &nbsp&nbsp
+    </section>
+    <br>
+
+    <% if (validity == false) { %>
+        <% validity = "none"; %>
+    <% } else { %>
+        <% validity = "block" %>
+    <% } %>
+
+    <section >
+        To obtain a Solar Systems certified D.E.I. badge, an average rating of 4/5 or above is required based on at least 10 reviews.
+    </section>
+    <section style="display: <%= validity %>" id="generateButtonContainer"> <!-- chuck in average rating from app.js, and if below 4/5, toggle display of this section to off, and also ensure they cannot generate badge from the server side-->
+        Congratulations, your organisation has qualified for a Solar Systems certified badge! 
+        <button class="generate-button">Generate badge</button>
+        <br>
+    </section>  
+
+    <section id="badge-popup">
+        <img src="IED badge.png" id="badge">
+        <div id="id">id: <%= id %></div>
+        <p>This will now be visible on your organisation's <a href="">profile</a> page.</p>
+        <p>Note: the badge is only valid when an average rating of 4/5 is consistently maintained. </p>
+        <button class="close-button">Close</button>
+    </section>
+
+    <br>
+    <span>Generate Random Employee Reviews:</span> 
+    <form id="positive" method="post"><button>Positive</button></form>
+    <form id="negative" method="post"><button>Negative</button></form>
+    <form id="clear" method="post"><button>Clear</button></form>
+
+
+    <section class="reviews">
+        <% for (let review of allReviews) { %>
+        <section class="reviewContainer">
+            <div class="reviewComment">
+                <span class="boldText"><%=review.workingStatus%></span>
+                <br>
+                <%=review.review%>
+            </div>
+
+            <div class="reviewRating">
+                Diversity
+                <div class="stars-outer">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <% const diversityPercentage = 100*review.diversity/5 %>
+                    <!-- While we can create variables in ejs, to sub those variables in, still need the special symbols for insertion -->
+                    <div class="stars-inner" style="width: <%=diversityPercentage%>%">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                Equity
+                <div class="stars-outer">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <% const equityPercentage = 100*review.equity/5 %>
+                    <div class="stars-inner" style="width: <%=equityPercentage%>%">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                Inclusion 
+                <div class="stars-outer">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <% const inclusionPercentage = 100*review.inclusion/5 %> 
+                    <div class="stars-inner" style="width: <%=inclusionPercentage%>%">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <% } %>
+        
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="/reviews.js"></script>
+</body>
+</html>

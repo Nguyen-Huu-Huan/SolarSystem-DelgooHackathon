@@ -1,0 +1,65 @@
+.checked {
+    color: orange;
+  }
+
+a {
+    text-decoration: none;
+    color: blue
+}
+
+.reviewContainer {
+    display: flex;
+    justify-content:space-around;
+    background-color: antiquewhite;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+.reviewComment {
+    width: 550px;
+}
+
+.reviews {
+    border-style: solid; 
+    border-width: 0.5px; 
+    height: 250px;
+    border-radius: 5px;
+    border-color:beige;
+}
+
+.boldText {
+    font-weight: bold;
+}
+
+#badge-popup {
+    display: none;
+    position: absolute;
+    border: 3px solid #f1f1f1;
+    background-color: white;
+}
+
+  
+#badge {
+    height: 400px;
+    width: 450px;
+}
+
+.stars-outer {
+    position: relative;
+    display: inline-block;
+    color: #ccc;
+}
+
+.stars-inner, .averageRating-stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0%;
+    color: #f8cd0b;
+
+}
+
+
+

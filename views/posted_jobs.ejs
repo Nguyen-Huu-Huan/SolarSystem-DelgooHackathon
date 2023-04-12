@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posted Jobs</title>
+    <link rel="stylesheet" href="posted_jobs.css">
+</head>
+<body>
+    <h1>Posted Jobs:</h1>
+    <div class="postedJobsContainer">
+    <% for (let job of postedJobs) { %>
+        
+            <div class="postedJob">
+                <div>
+                    <b><%= job.title %></b> (<%= job.experience %> Level)
+                    <br>
+                    <%= job.employmentType %>, <%= job.workingStyle %>
+
+                    <!-- If working style is remote, don't need location shown -->
+                    <% const workingStyle = job.workingStyle%>
+                    <% if (workingStyle != "Remote") { %>
+                        (<%= job.location %>)
+                    <% } %>
+                    <br>
+                    Skills: <%= job.skills %>
+                    <br>
+                    Posted on: <%= job.postedDate %>
+                </div>
+                <div>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                    <button>Expand</button>
+                </div>
+            </div>
+
+            
+        
+    <% } %>
+    </div>
+    
+    <!-- generatedDescription: String, -->
+    
+</body>
+</html>

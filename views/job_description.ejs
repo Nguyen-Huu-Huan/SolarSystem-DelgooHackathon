@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Job Description</h2>
+    <!-- After submission of form, preventDefault, as we want generated text to show below form-->
+    <form method="POST" id="jobDescriptionForm"> <!--action="/generateDescription"-->
+        <label for="title">Job Title</label>
+        <input type="text" id="title" class="required" name="title"><span class="title"></span>
+        <br>        
+        <label for="location">Location</label>
+        <input type="text" id="location" class="required" name="location"><span class="location"></span>
+        <br>
+        <label for="workingStyle">Working Style</label>
+        <select name="workingStyle" id="workingStyle" class="required">
+            <option disabled="disabled" selected="true">Please Select</option>
+            <option value="Remote">Remote</option>
+            <option value="Office">Office</option>
+            <option value="Hybrid">Hybrid</option>
+        </select>
+        <span class="workingStyle"></span>
+        <br>
+        <label for="employmentType">Employment Type</label>
+        <select name="employmentType" id="employmentType" class="required">
+            <option disabled="disabled" selected="true">Please Select</option>
+            <option value="Full-time">Full-time (&ge;38 hrs/wk)</option>
+            <option value="Part-time">Part-time (&lt;38 hrs/wk)</option>
+            <option value="Contract">Contract</option>
+            <option value="Casual">Casual (flexible working hours)</option>
+            <option value="Internship">Internship</option>
+        </select>
+        <span class="employmentType"></span>
+        <br>
+        <!-- need to be able to add in custom skills and save without leaving/refreshing page -->
+        <label for="skills">Skills Required</label>
+        <input type="text" id="skills" class="required" name="skills"><span class="skills"></span>
+        <br>
+        <label for="experience">Level of Experience Required</label>
+        <select name="experience" id="experience" class="required">
+            <option disabled="disabled" selected="true">Please Select</option>
+            <option value="Entry">Entry (0-2 yrs)</option>
+            <option value="Associate">Associate (2-5 yrs)</option>
+            <option value="Senior">Senior (5-15 yrs) </option>
+            <option value="Executive">Executive (15+ yrs)</option>
+        </select> 
+        <span class="experience"></span>
+        <br>
+        <div><input type="reset"><button id="generateButton">Generate</button></div>
+        <br>
+        <div id="warning"></div>
+        <section id="jobDescription"></section>
+        
+    </form>
+
+    <!--<section id="generatedDescription">-->
+        <!-- Once happy with generated description, post job to /postedJobs route -->
+        <form method="post" id="postForm">
+            
+            Generated Job Description:
+            <br> 
+            <textarea rows="10" cols="100" id="generatedDescription" name="generatedDescription"></textarea> 
+            <br>
+            <a href="postedJobs"><button>Post</button></a>
+            
+            <!-- When job is posted, using jquery, grab input fields from above, and also the string generated here, save them all to database, then redirect to job board -->
+        </form>
+
+        <a href="/postedJobs">View posted jobs</a>
+    <!--</section>-->
+
+    <script src="/form_validation.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="jobs.js"></script>
+</body>
+</html>
